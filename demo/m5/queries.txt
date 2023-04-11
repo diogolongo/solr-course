@@ -1,0 +1,174 @@
+
+## Raw Query Parameters
+
+in q write:
+	agile jira scrum
+in Raw Query Parameters write:
+	q=agile+jira+scrum
+
+## Query Event
+
+in q write:
+	agile jira scrum
+in q write:
+	scrum
+in q write:
+	estimation
+
+## FilterQuery
+q:
+	agile
+in fq write: 
+	course-author:"Xavier Morera"
+in fq write: 
+	course-author:"Jan-Erik Sandberg"
+
+click + and in fq write: 
+	course-author:("Xavier Morera"OR"Jan-Erik Sandberg")
+
+
+## Sorting
+
+in sort write:
+	coursetitle asc
+in sort write:
+	releasedate desc
+in sort write:
+	releasedate asc
+in sort write:
+	durationinseconds asc
+in sort write:
+	course-author asc
+
+## Paging With Start and Rows
+
+in q write:
+	agile
+in rows write:
+	2
+in start write:
+	1
+in start write:
+	10
+in rows write:
+	10
+
+## Fields
+
+in q write:
+	agile scrum
+in fl write:
+	*, score
+in fl write:
+	coursetitle, course-author, score
+
+## Default Field
+
+in q write:
+	"Xavier Morera"
+in df write:
+	course-author
+
+## Response Writer
+
+in q write:
+	agile scrum jira
+in wt select:
+	json
+in wt select:
+	xml
+in wt select:
+	python
+in wt select:
+	ruby
+in wt select:
+	php
+in wt select:
+	csv
+
+## Indent
+
+in q write:
+	agile scrum jira
+deselect:
+	indent
+
+## Debugquery
+
+in q write:
+	jira agile scrum
+select:
+	debugQuery
+
+## Query Parser
+
+in q write:
+	jira and agile and scrum
+select:
+	dismax
+in mm write:
+	1
+in mm write:
+	2
+
+## Highlighting
+
+in q write:
+	jira agile scrum
+select:
+	hl
+in hl.fl:
+	description
+in hl.simple.pre write:
+	<here>
+in hl.simple.post write:
+	</here>
+
+## Facets
+
+select:
+	facet
+in facet.field write:
+	course-author
+in facet.field write:
+	tags
+in Raw Query Parameters write:
+	facet.range=durationinseconds&f.durationinseconds.facet.range.start=0&f.durationinseconds.facet.range.end=140000&f.durationinseconds.facet.range.gap=1000
+in Raw Query Parameters write:
+	facet.range=durationinseconds&f.durationinseconds.facet.range.start=0&f.durationinseconds.facet.range.end=140000&f.durationinseconds.facet.range.gap=10000
+
+## Synonyms
+
+in q write:
+	supercalifragilisticexpialidocious
+in the file synonyms.txt add 
+	supercalifragilisticexpialidocious => supercalifragilisticexpialidocious, jira
+
+## Stopwords
+
+in q write:
+	author
+in the file stopwords.txt add
+	author
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
